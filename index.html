@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="La mia bio.">
+    <link rel="icon" href="assets/imgs/NotDrizy.png">
+
+    <title>@NotDrizy bio</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous">
+
+</head>
+<body>
+
+<video class="video-background" autoplay loop muted>
+    <source src="assets/imgs/background.mp4" type="video/mp4">
+</video>
+
+<audio id="background-audio" autoplay loop>
+    <source src="assets/imgs/backgroundaudio.mp3" type="audio/mp3">
+</audio>
+
+<button id="play-button" class="play-button">
+    <i class="fas fa-volume-mute"></i> 
+</button>
+
+</section>
+
+<section class="main">
+    <img src="assets/imgs/NotDrizy.png" alt="" srcset="">
+    <span>NotDrizy</span>
+    <p>Italian, Streamer & Developer...</p>
+    <ul>
+        <li><a target="_blank" href="https://discord.gg/3Gr4YMkXCr"><i class="fab fa-discord"></i></a></li>
+        <li><a target="_blank" href="https://tiktok.com/@notdrizyy"><i class="fab fa-tiktok"></i></a></li>
+        <li><a target="_blank" href="https://www.youtube.com/channel/UC5mVkD6clVCqjl8mT_G2P-Q"><i class="fab fa-youtube"></i></a></li>
+		<li><a target="_blank" href="https://twitch.tv/notdrizy"><i class="fab fa-twitch"></i></a></li>
+		<li><a target="_blank" href="https://github.com/notdrizy"><i class="fab fa-github"></i></a></li>
+    </ul>
+</section>
+
+<script>
+window.addEventListener('load', function() {
+    const video = document.querySelector('.video-background');
+    const audio = document.getElementById('background-audio');
+    const playButton = document.getElementById('play-button');
+
+    playButton.addEventListener('click', function() {
+        if (audio.paused || audio.muted) {
+            audio.play().catch(error => {
+                console.error('Audio play failed:', error);
+            });
+            video.muted = false;
+        } else {
+            audio.pause();
+            video.muted = true;
+        }
+        updateVolumeIcon();
+    });
+
+    function updateVolumeIcon() {
+        if (audio.muted || audio.paused) {
+            playButton.innerHTML = '<i class="fas fa-volume-mute"></i>';
+        } else {
+            playButton.innerHTML = '<i class="fas fa-volume-up"></i>';
+        }
+    }
+</script>
+
+</body>
+</html>
